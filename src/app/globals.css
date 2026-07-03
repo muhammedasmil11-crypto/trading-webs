@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+:root {
+  /* Dark mode by default */
+  --bg-main: #060913;
+  --bg-card: rgba(13, 20, 38, 0.45);
+  --bg-card-solid: #0d1426;
+  --bg-card-hover: rgba(22, 33, 62, 0.6);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-color-strong: rgba(255, 255, 255, 0.15);
+  --foreground: #f3f4f6;
+  --foreground-muted: #9ca3af;
+  --primary: #3b82f6;
+  --primary-hover: #1d4ed8;
+  --primary-glow: rgba(59, 130, 246, 0.15);
+  --success: #10b981;
+  --success-glow: rgba(16, 185, 129, 0.1);
+  --danger: #ef4444;
+  --danger-glow: rgba(239, 68, 68, 0.1);
+  --warning: #f59e0b;
+  --warning-glow: rgba(245, 158, 11, 0.1);
+}
+
+:root.light {
+  /* Light mode option */
+  --bg-main: #f9fafb;
+  --bg-card: rgba(255, 255, 255, 0.7);
+  --bg-card-solid: #ffffff;
+  --bg-card-hover: rgba(243, 244, 246, 0.85);
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-color-strong: rgba(0, 0, 0, 0.15);
+  --foreground: #111827;
+  --foreground-muted: #4b5563;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-glow: rgba(37, 99, 235, 0.1);
+  --success: #10b981;
+  --success-glow: rgba(16, 185, 129, 0.05);
+  --danger: #ef4444;
+  --danger-glow: rgba(239, 68, 68, 0.05);
+  --warning: #d97706;
+  --warning-glow: rgba(217, 119, 6, 0.05);
+}
+
+@theme {
+  --color-bg-main: var(--bg-main);
+  --color-bg-card: var(--bg-card);
+  --color-bg-card-solid: var(--bg-card-solid);
+  --color-bg-card-hover: var(--bg-card-hover);
+  --color-border-color: var(--border-color);
+  --color-border-color-strong: var(--border-color-strong);
+  --color-fg-main: var(--foreground);
+  --color-fg-muted: var(--foreground-muted);
+  --color-primary-main: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-success-main: var(--success);
+  --color-danger-main: var(--danger);
+  --color-warning-main: var(--warning);
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+}
+
+.glass-panel-hover:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-color-strong);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Premium Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Hide scrollbars but keep functional */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Print layout optimizations (for PDF generation) */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .glass-panel {
+    background: #ffffff !important;
+    border: 1px solid #cccccc !important;
+    color: #000000 !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+  }
+}
