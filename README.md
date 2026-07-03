@@ -1,0 +1,2 @@
+# trading-webs
+trading journal
